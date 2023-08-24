@@ -1,0 +1,14 @@
+services:
+  movie-catalog:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      target: development
+    command: npm run dev
+    env_file:
+      - ./.env
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - '3000:3000'
